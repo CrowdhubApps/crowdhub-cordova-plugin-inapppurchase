@@ -144,4 +144,12 @@
   return [receiptData base64EncodedStringWithOptions:0];
 }
 
+- (void)getLocalReceipt:(CDVInvokedUrlCommand *)command {
+  NSString *encReceipt = [self getEncryptedReceipt];
+
+  CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:@{@"receipt": NILABLE(encReceipt)}];
+  [pluginResult setKeepCallbackAsBool:YES];
+  [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 @end
