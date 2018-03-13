@@ -37,7 +37,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.alexdisler.inapppurchases.InAppBillingV3.BILLING_API_VERSION;
+import static com.alexdisler.inapppurchases.InAppBillingV6.BILLING_API_VERSION;
 
 /**
  * Provides convenience methods for in-app billing. You can create one instance of this
@@ -340,22 +340,22 @@ public class IabHelper {
     OnIabPurchaseFinishedListener mPurchaseListener;
 
     public void launchPurchaseFlow(Activity act, String sku, int requestCode, OnIabPurchaseFinishedListener listener) {
-        launchPurchaseFlow(act, sku, requestCode, listener, "");
+        launchPurchaseFlow(act, sku, requestCode, listener, "", new Bundle());
     }
 
     public void launchPurchaseFlow(Activity act, String sku, int requestCode,
-            OnIabPurchaseFinishedListener listener, String extraData) {
-        launchPurchaseFlow(act, sku, ITEM_TYPE_INAPP, requestCode, listener, extraData);
+            OnIabPurchaseFinishedListener listener, String extraData, Bundle extraParams) {
+        launchPurchaseFlow(act, sku, ITEM_TYPE_INAPP, requestCode, listener, extraData, extraParams);
     }
 
     public void launchSubscriptionPurchaseFlow(Activity act, String sku, int requestCode,
             OnIabPurchaseFinishedListener listener) {
-        launchSubscriptionPurchaseFlow(act, sku, requestCode, listener, "");
+        launchSubscriptionPurchaseFlow(act, sku, requestCode, listener, "", new Bundle());
     }
 
     public void launchSubscriptionPurchaseFlow(Activity act, String sku, int requestCode,
-            OnIabPurchaseFinishedListener listener, String extraData) {
-        launchPurchaseFlow(act, sku, ITEM_TYPE_SUBS, requestCode, listener, extraData);
+            OnIabPurchaseFinishedListener listener, String extraData, Bundle extraParams) {
+        launchPurchaseFlow(act, sku, ITEM_TYPE_SUBS, requestCode, listener, extraData, extraParams);
     }
 
     /**
@@ -375,9 +375,10 @@ public class IabHelper {
      * @param extraData Extra data (developer payload), which will be returned with the purchase data
      *     when the purchase completes. This extra data will be permanently bound to that purchase
      *     and will always be returned when the purchase is queried.
+     * @param extraParams a Bundle of optional keys and values that affect the operation of getBuyIntentExtraParams()
      */
     public void launchPurchaseFlow(Activity act, String sku, String itemType, int requestCode,
-                        OnIabPurchaseFinishedListener listener, String extraData) {
+                        OnIabPurchaseFinishedListener listener, String extraData, Bundle extraParams) {
         checkNotDisposed();
         checkSetupDone("launchPurchaseFlow");
         flagStartAsync("launchPurchaseFlow");
@@ -393,7 +394,7 @@ public class IabHelper {
 
         try {
             logDebug("Constructing buy intent for " + sku + ", item type: " + itemType);
-            Bundle buyIntentBundle = mService.getBuyIntent(BILLING_API_VERSION, mContext.getPackageName(), sku, itemType, extraData);
+            Bundle buyIntentBundle = mService.getBuyIntentExtraParams(BILLING_API_VERSION, mContext.getPackageName(), sku, itemType, extraData, extraParams);
             int response = getResponseCodeFromBundle(buyIntentBundle);
             if (response != BILLING_RESPONSE_RESULT_OK) {
                 logError("Unable to buy item, Error response: " + getResponseDesc(response));
