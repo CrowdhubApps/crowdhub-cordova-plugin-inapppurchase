@@ -20,7 +20,7 @@ describe('Android purchases', () => {
           if (name === 'init') {
             assert(typeof success === 'function', 'should define a success callback');
             assert(typeof err === 'function', 'should define an error callback');
-            assert(pluginName === 'InAppBillingV3', 'invalid Android plugin name');
+            assert(pluginName === 'InAppBillingV6', 'invalid Android plugin name');
             assert(args.length === 0, 'args should be empty');
             initCalled = true;
             success();
@@ -44,7 +44,7 @@ describe('Android purchases', () => {
           if (name === 'getSkuDetails') {
             assert(typeof success === 'function', 'should define a success callback');
             assert(typeof err === 'function', 'should define an error callback');
-            assert(pluginName === 'InAppBillingV3', 'invalid Android plugin name');
+            assert(pluginName === 'InAppBillingV6', 'invalid Android plugin name');
             assert.deepEqual(args, productIds, 'should get productIds as args');
             getSkuDetailsCalled = true;
             success([]);
@@ -88,8 +88,8 @@ describe('Android purchases', () => {
     it('should return an array of objects', async (done) => {
       try {
         const products = [
-          { productId: 'com.test.prod1', title: 'prod1 title', description: 'prod1 description', price: '$0.99', currency: 'USD', priceAsDecimal: 0.99 },
-          { productId: 'com.test.prod2', title: 'prod2 title', description: 'prod2 description', price: '$1.99', currency: 'USD', priceAsDecimal: 1.99 }
+          { productId: 'com.test.prod1', title: 'prod1 title', description: 'prod1 description', price: '$0.99', currency: 'USD', country: 'US', priceRaw: '0.99', priceAsDecimal: 0.99 },
+          { productId: 'com.test.prod2', title: 'prod2 title', description: 'prod2 description', price: '$1.99', currency: 'USD', country: 'US', priceRaw: '0.99', priceAsDecimal: 1.99 }
         ];
         const productIds = products.map(i => i.productId );
         GLOBAL.window.cordova.exec = (success, err, pluginName, name) => {
@@ -167,7 +167,7 @@ describe('Android purchases', () => {
         GLOBAL.window.cordova.exec = (success, err, pluginName, name, args) => {
           assert(typeof success === 'function', 'should define a success callback');
           assert(typeof err === 'function', 'should define an error callback');
-          assert(pluginName === 'InAppBillingV3', 'invalid Android plugin name');
+          assert(pluginName === 'InAppBillingV6', 'invalid Android plugin name');
           assert(name === 'buy', 'invalid function name');
           assert(args[0] === productId, 'should get productId as args');
           success({ orderId, purchaseToken });
@@ -263,7 +263,7 @@ describe('Android purchases', () => {
         GLOBAL.window.cordova.exec = (success, err, pluginName, name, args) => {
           assert(typeof success === 'function', 'should define a success callback');
           assert(typeof err === 'function', 'should define an error callback');
-          assert(pluginName === 'InAppBillingV3', 'invalid Android plugin name');
+          assert(pluginName === 'InAppBillingV6', 'invalid Android plugin name');
           assert(name === 'subscribe', 'invalid function name');
           assert(args[0] === productId, 'should get productId as args');
           success({ orderId, purchaseToken });
@@ -298,7 +298,7 @@ describe('Android purchases', () => {
         GLOBAL.window.cordova.exec = (success, err, pluginName, name, args) => {
           assert(typeof success === 'function', 'should define a success callback');
           assert(typeof err === 'function', 'should define an error callback');
-          assert(pluginName === 'InAppBillingV3', 'invalid Android plugin name');
+          assert(pluginName === 'InAppBillingV6', 'invalid Android plugin name');
           assert(name === 'consumePurchase', 'invalid function name');
           assert(args[0] === type, 'should get type as args 1');
           assert(args[1] === receipt, 'should get receipt as args 2');
@@ -337,7 +337,7 @@ describe('Android purchases', () => {
           if (name === 'init') {
             assert(typeof success === 'function', 'should define a success callback');
             assert(typeof err === 'function', 'should define an error callback');
-            assert(pluginName === 'InAppBillingV3', 'invalid Android plugin name');
+            assert(pluginName === 'InAppBillingV6', 'invalid Android plugin name');
             assert(args.length === 0, 'args should be empty');
             initCalled = true;
             success();
@@ -359,7 +359,7 @@ describe('Android purchases', () => {
           if (name === 'restorePurchases') {
             assert(typeof success === 'function', 'should define a success callback');
             assert(typeof err === 'function', 'should define an error callback');
-            assert(pluginName === 'InAppBillingV3', 'invalid Android plugin name');
+            assert(pluginName === 'InAppBillingV6', 'invalid Android plugin name');
             success([{}]);
           } else if (name === 'init') {
             success();

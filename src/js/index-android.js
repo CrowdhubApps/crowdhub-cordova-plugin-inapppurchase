@@ -20,7 +20,7 @@ const nativeCall = (name, args = []) => {
   return new Promise((resolve, reject) => {
     window.cordova.exec((res) => {
       resolve(res);
-    }, createIapError(reject), 'InAppBillingV3', name, args);
+    }, createIapError(reject), 'InAppBillingV6', name, args);
   });
 };
 
@@ -48,8 +48,10 @@ inAppPurchase.getProducts = (productIds) => {
             title       : val.title,
             description : val.description,
             price       : val.price,
-            currency    : val.currency,
+            priceRaw    : val.priceRaw,
             priceAsDecimal : val.priceAsDecimal,
+            currency    : val.currency,
+            country     : val.country,
           };
         });
         resolve(arr);
