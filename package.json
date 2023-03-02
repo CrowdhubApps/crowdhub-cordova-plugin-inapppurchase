@@ -1,7 +1,7 @@
 {
-  "name": "cordova-plugin-inapppurchase",
-  "version": "1.2.0",
-  "description": "A lightweight cordova plugin for in app purchases on iOS and Android with a simple promise based API.",
+  "name": "crowdhub-cordova-plugin-inapppurchase",
+  "version": "1.2.1",
+  "description": "A lightweight cordova plugin for in app purchases on iOS and Android with a simple promise based API. Forked from AlexDisler/cordova-plugin-inapppurchase",
   "main": "www/index-ios.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require babel-polyfill test/*",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/AlexDisler/cordova-plugin-inapppurchase.git"
+    "url": "git://github.com/CrowdhubApps/crowdhub-cordova-plugin-inapppurchase.git"
   },
   "keywords": [
     "cordova",
@@ -32,12 +32,11 @@
     "ionic"
   ],
   "author": {
-    "name": "Alex Disler",
-    "email": "alexdisler@gmail.com",
-    "url": "alexdisler.com"
+    "name": "Austin Isakson",
+    "email": "austini@crowdhubapps.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/AlexDisler/cordova-plugin-inapppurchase",
+  "homepage": "https://github.com/CrowdhubApps/crowdhub-cordova-plugin-inapppurchase",
   "devDependencies": {
     "babel-core": "6.5.2",
     "babel-plugin-syntax-async-functions": "6.5.0",

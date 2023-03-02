@@ -2,8 +2,8 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
   xmlns:android="http://schemas.android.com/apk/res/android"
-  id="cordova-plugin-inapppurchase"
-  version="1.2.0">
+  id="crowdhub-cordova-plugin-inapppurchase"
+  version="1.2.1">
 
   <name>In App Purchase</name>
   <description>A lightweight cordova plugin for in app purchases on iOS and Android with a simple promise based API.</description>
@@ -11,8 +11,8 @@
     <engine name="cordova" version=">=5.0.0" />
     <engine name="cordova-android" version=">=7.0.0" />
   </engines>
-  <repo>https://github.com/AlexDisler/cordova-plugin-inapppurchase.git</repo>
-  <issue>https://github.com/AlexDisler/cordova-plugin-inapppurchase/issues</issue>
+  <repo>https://github.com/CrowdhubApps/crowdhub-cordova-plugin-inapppurchase.git</repo>
+  <issue>https://github.com/CrowdhubApps/crowdhub-cordova-plugin-inapppurchase/issues</issue>
 
   <license>MIT</license>
   <keywords>cordova,phonegap,ionic,purchase,storekit,ios,android,play,appstore</keywords>
@@ -40,10 +40,6 @@
     <js-module src="www/index-android.js" name="InAppBillingV6">
       <merges target="inAppPurchase" />
     </js-module>
-
-    <config-file target="AndroidManifest.xml" parent="/manifest">
-      <uses-permission android:name="com.android.vending.BILLING" />
-    </config-file>
 
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="InAppBillingV6">
