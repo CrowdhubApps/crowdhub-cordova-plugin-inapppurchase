@@ -47,7 +47,7 @@
       </feature>
     </config-file>
 
-    <framework src="com.android.billingclient:billing-ktx:5.2.1"/>
+    <framework src="com.android.billingclient:billing-ktx:6.2.0"/>
 
     <source-file src="src/android/InAppBillingV6.java" target-dir="app/src/main/java/com/alexdisler/inapppurchases" />
     <source-file src="src/android/Base64.java" target-dir="app/src/main/java/com/alexdisler/inapppurchases" />
