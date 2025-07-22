@@ -37,19 +37,19 @@
   </platform>
 
   <platform name="android">
-    <js-module src="www/index-android.js" name="InAppBillingV6">
+    <js-module src="www/index-android.js" name="InAppBillingV8">
       <merges target="inAppPurchase" />
     </js-module>
 
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="InAppBillingV6">
-        <param name="android-package" value="com.alexdisler.inapppurchases.InAppBillingV6"/>
+      <feature name="InAppBillingV8">
+        <param name="android-package" value="com.alexdisler.inapppurchases.InAppBillingV8"/>
       </feature>
     </config-file>
 
-    <framework src="com.android.billingclient:billing-ktx:6.2.0"/>
+    <framework src="com.android.billingclient:billing-ktx:8.0.0"/>
 
-    <source-file src="src/android/InAppBillingV6.java" target-dir="app/src/main/java/com/alexdisler/inapppurchases" />
+    <source-file src="src/android/InAppBillingV8.java" target-dir="app/src/main/java/com/alexdisler/inapppurchases" />
     <source-file src="src/android/Base64.java" target-dir="app/src/main/java/com/alexdisler/inapppurchases" />
     <source-file src="src/android/Base64DecoderException.java" target-dir="app/src/main/java/com/alexdisler/inapppurchases" />
     <source-file src="src/android/IabException.java" target-dir="app/src/main/java/com/alexdisler/inapppurchases" />

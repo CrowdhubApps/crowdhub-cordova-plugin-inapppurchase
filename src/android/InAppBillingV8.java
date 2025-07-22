@@ -36,7 +36,7 @@ import android.util.Log;
 
 public class InAppBillingV6 extends CordovaPlugin {
 
-	public static final int BILLING_API_VERSION = 6;
+	public static final int BILLING_API_VERSION = 8;
 
 	protected static final String TAG = "google.payments";
 
