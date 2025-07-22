@@ -37,7 +37,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.alexdisler.inapppurchases.InAppBillingV6.BILLING_API_VERSION;
+import static com.alexdisler.inapppurchases.InAppBillingV8.BILLING_API_VERSION;
 
 /**
  * Provides convenience methods for in-app billing. You can create one instance of this

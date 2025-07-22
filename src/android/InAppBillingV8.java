@@ -34,7 +34,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-public class InAppBillingV6 extends CordovaPlugin {
+public class InAppBillingV8 extends CordovaPlugin {
 
 	public static final int BILLING_API_VERSION = 8;
 

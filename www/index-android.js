@@ -109,7 +109,7 @@ var nativeCall = function nativeCall(name) {
   return new Promise(function (resolve, reject) {
     window.cordova.exec(function (res) {
       resolve(res);
-    }, createIapError(reject), 'InAppBillingV6', name, args);
+    }, createIapError(reject), 'InAppBillingV8', name, args);
   });
 };
 
